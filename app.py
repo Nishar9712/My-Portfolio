@@ -91,6 +91,14 @@ def build_standalone_portfolio():
         if rel_path in html and os.path.exists(abs_path):
             b64_val = to_base64(abs_path)
             html = html.replace(rel_path, b64_val)
+
+    # Encode resume.html as standalone base64 download
+    resume_path = os.path.join(base_dir, "resume.html")
+    if os.path.exists(resume_path):
+        with open(resume_path, "rb") as rf:
+            resume_b64 = base64.b64encode(rf.read()).decode("utf-8")
+        resume_data_uri = f"data:text/html;charset=utf-8;base64,{resume_b64}"
+        html = html.replace('href="resume.html"', f'href="{resume_data_uri}"')
             
     return html
 

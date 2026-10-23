@@ -9,7 +9,57 @@ document.addEventListener('DOMContentLoaded', () => {
   initCopyButtons();
   initContactForm();
   initSmoothScroll();
+  initResumeModal();
 });
+
+/* ===================================================================
+   RESUME MODAL HANDLER (Instant in-page display & printing)
+   =================================================================== */
+function initResumeModal() {
+  const modal = document.getElementById('resumeModal');
+  const triggers = document.querySelectorAll('.resume-trigger');
+  const closeBtn = document.getElementById('btnCloseResume');
+  const printBtn = document.getElementById('btnPrintResume');
+
+  if (!modal) return;
+
+  function openModal(e) {
+    if (e) e.preventDefault();
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  triggers.forEach(trigger => {
+    trigger.addEventListener('click', openModal);
+  });
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeModal);
+  }
+
+  if (printBtn) {
+    printBtn.addEventListener('click', () => {
+      window.print();
+    });
+  }
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('open')) {
+      closeModal();
+    }
+  });
+}
 
 /* ===================================================================
    1. NAVBAR BEHAVIOR (Sticky & Mobile Drawer)

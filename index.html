@@ -50,7 +50,7 @@
         <a class="nav-link" href="#education">Education</a>
         <a class="nav-link" href="#certifications">Achievements</a>
         <a class="nav-link" href="#contact">Contact</a>
-        <a class="btn btn-primary btn-sm" href="resume.html" target="_blank" style="margin-left: 8px;">Resume</a>
+        <a class="btn btn-primary btn-sm resume-trigger" href="resume.html" target="_blank" style="margin-left: 8px;">Resume</a>
       </div>
     </div>
   </nav>
@@ -98,7 +98,7 @@
         <a href="#projects" class="btn btn-primary">
           View Projects
         </a>
-        <a href="resume.html" target="_blank" class="btn btn-outline-light">
+        <a href="resume.html" target="_blank" class="btn btn-outline-light resume-trigger">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 4px;">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
             <polyline points="7 10 12 15 17 10"></polyline>
@@ -140,7 +140,7 @@
             </p>
 
             <div style="margin-top: 24px;">
-              <a href="resume.html" target="_blank" class="btn btn-primary">
+              <a href="resume.html" target="_blank" class="btn btn-primary resume-trigger">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                   <polyline points="14 2 14 8 20 8"></polyline>
@@ -676,6 +676,109 @@
       </div>
     </div>
   </footer>
+
+  <!-- ===================================================================
+       IN-PAGE INTERACTIVE RESUME MODAL
+       (Works everywhere, including inside Streamlit Cloud iframe)
+       =================================================================== -->
+  <div class="resume-modal-backdrop" id="resumeModal" role="dialog" aria-modal="true" aria-labelledby="resumeModalTitle">
+    <div class="resume-modal-dialog">
+      <div class="resume-modal-toolbar">
+        <div class="resume-modal-title" id="resumeModalTitle">
+          <span>📄</span>
+          <span>Nishar Dayma — Resume / Curriculum Vitae</span>
+        </div>
+        <div class="resume-modal-actions">
+          <button type="button" class="btn-resume-action btn-resume-print" id="btnPrintResume">
+            🖨️ Print / Save as PDF
+          </button>
+          <a href="resume.html" download="Nishar_Dayma_Resume.html" class="btn-resume-action btn-resume-download" id="btnDownloadResume">
+            📥 Download File
+          </a>
+          <button type="button" class="btn-resume-action btn-resume-close" id="btnCloseResume" aria-label="Close resume">
+            ✕
+          </button>
+        </div>
+      </div>
+
+      <div class="resume-modal-body">
+        <article class="resume-paper">
+          <h2 class="resume-name">Nishar Dayma</h2>
+          <p class="resume-contact-line">
+            Ahmedabad, Gujarat 380009 · 
+            <a href="mailto:daymanishar9712@gmail.com">daymanishar9712@gmail.com</a> · 
+            <a href="tel:9328215457">+91 932-821-5457</a> · 
+            <a href="https://github.com/Nishar9712" target="_blank" rel="noopener noreferrer">GitHub</a> · 
+            <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </p>
+
+          <h3 class="resume-section-heading">Summary</h3>
+          <p>
+            Computer Engineering student skilled in Python, SQL, data cleaning, exploratory data analysis, regression modelling, and interactive dashboards. Built and deployed end-to-end data projects with Streamlit. Seeking a Data Analyst or Data Science internship to turn raw data into clear, actionable insights.
+          </p>
+
+          <h3 class="resume-section-heading">Education</h3>
+          <div class="resume-item-header">
+            <span>Bachelor of Engineering (B.E.) in Computer Engineering</span>
+            <span>Expected 2028</span>
+          </div>
+          <div class="resume-item-sub">
+            <span>L. D. College of Engineering, Gujarat Technological University (GTU)</span>
+            <span style="color: #0d9488; font-weight: 700;">CGPA: 8.35 / 10</span>
+          </div>
+
+          <h3 class="resume-section-heading">Technical Skills</h3>
+          <p><strong>Programming & Data:</strong> Python, SQL, Excel, Pandas, NumPy, Data Cleaning, Exploratory Data Analysis (EDA)</p>
+          <p><strong>Data Visualization:</strong> Matplotlib, Seaborn, Streamlit Dashboards</p>
+          <p><strong>Machine Learning:</strong> Scikit-learn, Regression, Feature Engineering, Model Evaluation, Statistics</p>
+          <p><strong>Tools & Workspaces:</strong> Jupyter Notebook, VS Code, Git, GitHub</p>
+
+          <h3 class="resume-section-heading">Projects</h3>
+          <div class="resume-item-header">
+            <span>Car Price Prediction – Machine Learning Web App</span>
+            <span><a href="https://github.com/Nishar9712" target="_blank" style="color: #0d9488;">GitHub</a></span>
+          </div>
+          <div class="resume-item-sub">Python, Pandas, Scikit-learn, Streamlit</div>
+          <ul>
+            <li>Cleaned and explored a car dataset, engineering features to improve regression performance.</li>
+            <li>Compared multiple regression algorithms with Scikit-learn and selected the best model using evaluation metrics.</li>
+            <li>Deployed an interactive Streamlit app that predicts car prices from user inputs.</li>
+          </ul>
+
+          <div class="resume-item-header">
+            <span>Indian Startup Funding Analysis – Interactive Dashboard</span>
+            <span><a href="https://github.com/Nishar9712" target="_blank" style="color: #0d9488;">GitHub</a></span>
+          </div>
+          <div class="resume-item-sub">Python, Pandas, Matplotlib, Seaborn, Streamlit</div>
+          <ul>
+            <li>Cleaned funding data by handling missing values and standardizing inconsistent categories.</li>
+            <li>Analysed funding trends across year, industry, city, investors, and investment amount.</li>
+            <li>Built charts and a Streamlit dashboard so users can explore the insights interactively.</li>
+          </ul>
+
+          <div class="resume-item-header">
+            <span>Discipline Calendar – Web Productivity App</span>
+            <span><a href="https://github.com/Nishar9712" target="_blank" style="color: #0d9488;">GitHub</a></span>
+          </div>
+          <div class="resume-item-sub">HTML, CSS, JavaScript</div>
+          <ul>
+            <li>Developed a web prototype for daily scheduling, task management, habit tracking, and calendar view.</li>
+            <li>Reviewed and tested AI-assisted code to ensure the app works correctly.</li>
+          </ul>
+
+          <h3 class="resume-section-heading">Certifications & Achievements</h3>
+          <ul>
+            <li><strong>Green Skills and Artificial Intelligence Foundation Course</strong> – Certified</li>
+            <li><strong>Smart India Hackathon (SIH)</strong> – Project Team Member</li>
+          </ul>
+
+          <h3 class="resume-section-heading">Additional Information</h3>
+          <p><strong>Languages:</strong> Gujarati (Native), Hindi (Fluent), English (Professional)</p>
+          <p><strong>Work Mode:</strong> Open to remote or on-site opportunities (Open to Relocate)</p>
+        </article>
+      </div>
+    </div>
+  </div>
 
   <!-- Toast Notification -->
   <div class="toast-notice" id="toastNotice" role="status" aria-live="polite">

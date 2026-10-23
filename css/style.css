@@ -1204,6 +1204,201 @@ ul {
 }
 
 /* ===================================================================
+   RESUME MODAL COMPONENT (Works everywhere, including Streamlit Cloud)
+   =================================================================== */
+.resume-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease-in-out;
+}
+
+.resume-modal-backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.resume-modal-dialog {
+  background-color: #ffffff;
+  color: #0f172a;
+  border-radius: var(--radius-md);
+  width: 100%;
+  max-width: 860px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transform: translateY(20px);
+  transition: transform 0.25s ease-in-out;
+}
+
+.resume-modal-backdrop.open .resume-modal-dialog {
+  transform: translateY(0);
+}
+
+.resume-modal-toolbar {
+  position: sticky;
+  top: 0;
+  background-color: var(--primary);
+  color: #ffffff;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 10;
+}
+
+.resume-modal-title {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.resume-modal-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-resume-action {
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: var(--transition);
+}
+
+.btn-resume-print {
+  background-color: var(--secondary);
+  color: #ffffff;
+  border: none;
+}
+.btn-resume-print:hover {
+  background-color: var(--secondary-hover);
+}
+
+.btn-resume-download {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+.btn-resume-download:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.btn-resume-close {
+  background-color: transparent;
+  color: #94a3b8;
+  border: none;
+  font-size: 1.2rem;
+  padding: 4px 8px;
+}
+.btn-resume-close:hover {
+  color: #ffffff;
+}
+
+.resume-modal-body {
+  padding: 36px 40px;
+  background-color: #ffffff;
+  color: #0f172a;
+}
+
+.resume-paper {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.resume-paper h2.resume-name {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 800;
+  color: #0f172a;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin-bottom: 4px;
+  text-align: center;
+}
+
+.resume-paper p.resume-contact-line {
+  text-align: center;
+  font-size: 0.92rem;
+  color: #475569;
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.resume-paper p.resume-contact-line a {
+  color: #0d9488;
+  font-weight: 600;
+  margin: 0 6px;
+}
+
+.resume-paper h3.resume-section-heading {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #1e293b;
+  border-bottom: 1.5px solid #0f172a;
+  padding-bottom: 4px;
+  margin: 18px 0 10px 0;
+  letter-spacing: 0.05em;
+}
+
+.resume-paper p, .resume-paper li {
+  font-size: 0.92rem;
+  color: #334155;
+  line-height: 1.55;
+}
+
+.resume-paper ul {
+  padding-left: 20px;
+  list-style: disc;
+  margin-bottom: 10px;
+}
+
+.resume-paper .resume-item-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #0f172a;
+  margin-top: 6px;
+}
+
+.resume-paper .resume-item-sub {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.88rem;
+  color: #64748b;
+  margin-bottom: 4px;
+}
+
+/* ===================================================================
    RESPONSIVE MEDIA QUERIES
    =================================================================== */
 @media (max-width: 992px) {
